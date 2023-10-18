@@ -10,9 +10,9 @@ namespace LYA1_Lexico3
         public enum Tipos
         {
             Identificador,Numero,Caracter,Asignacion,
-            OperadorAsignacion, OperadorLogico, OperadorRelacional,OperadorTermino,
+             OperadorLogico, OperadorRelacional,OperadorTermino,
             OperadorIncrementoTermino, OperadorFactor, OperadorIncrementofactor,
-            Cadena, OperadorTernario, 
+            Cadena, OperadorTernario, llaveInicio, llaveFinal,
             finSentencia
         }
         private string contenido;

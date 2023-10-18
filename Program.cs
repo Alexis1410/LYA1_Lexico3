@@ -13,8 +13,7 @@ namespace LYA1_Lexico3
             {
                 using (Lexico L = new Lexico())
                 {
-                    int b=0;
-                    int a = 1/b;
+                    
                     while (!L.FinArchivo())
                     {
                         L.nextToken();

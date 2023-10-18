@@ -16,16 +16,43 @@ namespace LYA1_Lexico3
 
         int[,] TRAND =  
         {
-        //  WS,L,D,.,E,+,-,La
-            {0,1,2,8,1,8,8,8}, // 0
-            {F,1,1,F,1,F,F,F}, // 1
-            {F,F,2,3,5,F,F,F}, // 2
-            {E,E,4,E,E,E,E,E}, // 3
-            {F,F,4,F,5,F,F,F}, // 4
-            {E,E,7,E,E,6,6,E}, // 5
-            {E,E,7,E,E,E,E,E}, // 6
-            {F,F,7,F,F,F,F,F}, // 7
-            {F,F,F,F,F,F,F,F}, // 8
+    //   WS L  D  .   E	  +   -   =   ;   &	  |   %   *   ?   <   >   "   /  !   EOL EOF  {   }   Lamda
+    //   0, 1, 2, 3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
+        {0,	1, 2, 27, 1,  19, 27, 8,  10, 11, 12, 22, 22, 24, 17, 16, 25, 28, 13, 0,  F,  32, 33, 27}, //0
+        {F,	1, 1, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, // 1
+        {F,	F, 2, 3,  5,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, // 2
+        {E,	E, 4, E,  E,  E,  E,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  E}, // 3
+        {F,	F, 4, F,  5,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //4
+        {E,	E, 7, E,  E,  6,  6,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  E}, //5
+        {E,	E, 7, E,  E,  E,  E,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  E}, //6
+        {F,	F, 7, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //7
+        {F,	F, F, F,  F,  F,  F,  9,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //8
+        {F,	F, F, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //9
+        {F,	F, F, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //10
+        {F,	F, F, F,  F,  F,  F,  F,  F,  14, F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //11
+        {F,	F, F, F,  F,  F,  F,  F,  F,  F,  12, F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //12
+        {F,	F, F, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  13, 0,  F,  F,  F,  F},  //13   
+        {F,	F, F, F,  F,  F,  F,  F,  F,  14, 14, F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //14
+        {F,	F, F, F,  F,  F,  F,  13, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //15
+        {F,	F, F, F,  F,  F,  F,  18, F,  F,  F,  F,  F,  F,  16, 16, F,  F,  F,  0,  F,  F,  F,  F}, //16
+        {F,	F, F, F,  F,  F,  F,  18, F,  F,  F,  F,  F,  F,  17, F,  F,  F,  F,  0,  F,  F,  F,  F}, //17
+        {F,	F, F, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  18, F,  F,  F,  0,  F,  F,  F,  F}, //18
+        {F,	F, F, F,  F,  21, F,  21, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //19
+        {F,	F, F, F,  F,  F,  21, 21, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //20
+        {F,	F, F, F,  F,  19, 20, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //21
+        {F,	F, F, F,  F,  F,  F,  F,  F,  F,  F,  22, 22, F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //22
+        {F,	F, F, F,  F,  F,  F,  23, F,  F,  F,  22, 22, F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //23
+        {F,	F, F, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  24, F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //24
+        {25,25,25,25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, F,  25, 25, F}, //25
+        {F,	F, F, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  26, F,  F,  0,  F,  F,  F,  26}, //26
+        {F,	F, F, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //27
+        {F,	F, F, F,  F,  F,  F,  23, F,  F,  F,  F,  30, F,  F,  F,  F,  28, F,  0,  F,  F,  F,  F}, //28
+        {29,29,29,29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0,  F,  29, F,  F}, //29     
+        {30,30,30,30, 30, 30, 30, 30, 30, 30, 30, 30, 31, 30, 30, 30, 30, 30, 30, 0,  F,  E,  30, F}, //30
+        {30,30,30,30, 30, 30, 30, 30, 30, 30, 30, 30, 31, 32, 30, 30, 30, 30, 30, 0,  E,  E,  30, F}, //31
+        {F ,F, F, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  F,  F,  F,  F}, //32
+        {F ,F, F, F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  0,  E,  F,  F,  F}, //33
+
         };
         public Lexico()
         {
@@ -44,9 +71,11 @@ namespace LYA1_Lexico3
             archivo.Close();
             log.Close();
         }
-        private int columna(char c)
+        private int Columna(char c)
         {
-            if (char.IsWhiteSpace(c))
+            if (archivo.EndOfStream)
+                return 20;
+            else if (char.IsWhiteSpace(c))
                 return 0;
             else if (char.ToLower(c) == 'e')
                 return 4;
@@ -60,8 +89,44 @@ namespace LYA1_Lexico3
                 return 5;
             else if (c=='-')
                 return 6;
+            else if (c== '=')
+               return 7;
+            else if (c== ';')
+                return 8;
+            else if (c== '&')
+                return 9;
+            else if (c== '|')
+                return 10;
+            else if (c== '%')
+                return  11;
+            else if (c== '*')
+                return 12;
+            else if (c== '?')
+                return 13;
+            else if (c== '<')
+                return 14;
+            else if (c== '>')
+                return 15;
+            else if ( c== '"')
+                return 16;
+            else if (c=='/')
+                return 17;
+            else if (c== '!')
+                return 18;
+            else if (c== '{')
+                return 21;
+            else if (c== '}')
+                return 22;
             else
-                return 7;
+                return 23;
+            
+            
+          
+
+            
+
+
+                
         }
         private void clasificar(int estado)
         {
@@ -69,7 +134,29 @@ namespace LYA1_Lexico3
             {
                 case 1: setClasificacion(Tipos.Identificador); break;
                 case 2: setClasificacion(Tipos.Numero); break;
-                case 8: setClasificacion(Tipos.Caracter); break;
+                case 8: setClasificacion(Tipos.Asignacion); break;
+                case 9: setClasificacion(Tipos.OperadorRelacional); break;
+                case 10: setClasificacion(Tipos.finSentencia);break;
+                case 11: setClasificacion(Tipos.Caracter); break;
+                case 12: setClasificacion (Tipos.Caracter); break;
+                case 13: setClasificacion (Tipos.OperadorLogico); break;
+                case 14: setClasificacion(Tipos.OperadorLogico); break;
+                case 15: setClasificacion(Tipos.OperadorLogico); break;
+                case 16: setClasificacion (Tipos.OperadorRelacional); break;
+                case 17: setClasificacion (Tipos.OperadorRelacional); break;
+                case 19: setClasificacion(Tipos.OperadorTermino); break;
+                case 20: setClasificacion(Tipos.OperadorTermino); break;
+                case 21: setClasificacion(Tipos.OperadorIncrementoTermino); break;
+                case 22: setClasificacion(Tipos.OperadorFactor); break;
+                case 23: setClasificacion(Tipos.OperadorIncrementofactor); break;
+                case 24: setClasificacion(Tipos.OperadorTernario); break;
+                case 25: setClasificacion(Tipos.Cadena); break;
+                case 26: setClasificacion(Tipos.Cadena); break;
+                case 27: setClasificacion(Tipos.Caracter); break;
+                case 28: setClasificacion(Tipos.OperadorFactor); break;
+                case 32: setClasificacion(Tipos.llaveInicio); break;
+                case 33: setClasificacion(Tipos.llaveFinal); break;
+
             }
         }
         public void nextToken()
@@ -83,7 +170,7 @@ namespace LYA1_Lexico3
             {
                 c = (char)archivo.Peek();
 
-                estado = TRAND[estado,columna(c)];
+                estado = TRAND[estado, Columna(c)];
                 clasificar(estado);
                 
                 if (estado >= 0)
